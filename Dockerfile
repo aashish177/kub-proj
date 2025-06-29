@@ -9,8 +9,8 @@ RUN yum install -y zip
 RUN yum install -y unzip
 ADD site-template.zip /var/www/html/
 WORKDIR /var/www/html/
-RUN sh -c 'unzip -q "*.zip"'
-RUN cp -rvf photogenic/* .
-RUN rm -rf photogenic photogenic.zip
+RUN unzip -q site-template.zip
+RUN cp -rvf */* .
+RUN rm -rf site-template.zip */
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
 EXPOSE 80 22
